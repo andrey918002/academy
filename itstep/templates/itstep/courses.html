@@ -1,0 +1,14 @@
+{% extends "itstep/base.html" %}
+
+{% block content %}
+<h2>Курсы</h2>
+<ul class="list-group">
+  {% for course in courses %}
+    <li class="list-group-item">
+      {{ course.name }} ({{ course.start }} - {{ course.end }}) — преподаватель: {{ course.teacher }}
+    </li>
+  {% empty %}
+    <li class="list-group-item">Нет курсов</li>
+  {% endfor %}
+</ul>
+{% endblock %}

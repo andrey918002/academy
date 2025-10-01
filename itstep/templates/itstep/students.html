@@ -1,0 +1,21 @@
+{% extends "itstep/base.html" %}
+
+{% block content %}
+<h2>Студенты</h2>
+<ul class="list-group">
+  {% for student in students %}
+    <li class="list-group-item">
+      {{ student.first_name }} {{ student.last_name }} — {{ student.email }}
+      <br>
+      Курсы: 
+      {% for course in student.courses.all %}
+        {{ course.name }}{% if not forloop.last %}, {% endif %}
+      {% empty %}
+        не записан на курсы
+      {% endfor %}
+    </li>
+  {% empty %}
+    <li class="list-group-item">Нет студентов</li>
+  {% endfor %}
+</ul>
+{% endblock %}

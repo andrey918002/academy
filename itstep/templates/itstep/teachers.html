@@ -1,0 +1,14 @@
+{% extends "itstep/base.html" %}
+
+{% block content %}
+<h2>Преподаватели</h2>
+<ul class="list-group">
+  {% for teacher in teachers %}
+    <li class="list-group-item">
+      {{ teacher.first_name }} {{ teacher.last_name }} — {{ teacher.email }}
+    </li>
+  {% empty %}
+    <li class="list-group-item">Нет преподавателей</li>
+  {% endfor %}
+</ul>
+{% endblock %}
